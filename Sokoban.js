@@ -2,7 +2,7 @@ import {
   EMPTY,
   BLOCK,
   SUCCESS_BLOCK,
-  VOID,
+  TARGET,
   PLAYER,
   directions,
   size,
@@ -74,7 +74,7 @@ class Sokoban {
       })
     })
 
-    const rowsWithVoid = this.board.filter((row) => row.some((entry) => entry === VOID))
+    const rowsWithVoid = this.board.filter((row) => row.some((entry) => entry === TARGET))
     // The player herself might be standing on an initially void cell:
     if (isVoid(levelOneMap[this.findPlayerCoords().y][this.findPlayerCoords().x])) {
       rowsWithVoid.push(levelOneMap[this.findPlayerCoords().y]);
@@ -110,7 +110,7 @@ class Sokoban {
   movePlayer(playerCoords, direction) {
     // Replace previous spot with initial board state (void or empty)
     this.board[playerCoords.y][playerCoords.x] =
-      isVoid(levelOneMap[playerCoords.y][playerCoords.x]) ? VOID : EMPTY
+      isVoid(levelOneMap[playerCoords.y][playerCoords.x]) ? TARGET : EMPTY
 
     // Move player
     this.board[getY(playerCoords.y, direction, 1)][getX(playerCoords.x, direction, 1)] = PLAYER
