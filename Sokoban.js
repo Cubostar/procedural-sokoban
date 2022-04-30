@@ -123,30 +123,8 @@ class Sokoban {
     const newBoxX = getX(playerCoords.x, direction, 2)
 
     // Don't move if the movement pushes a box into a wall
-    if (isWall(this.board[newBoxY][newBoxX])) {
+    if (isWall(this.board[newBoxY][newBoxX]) || isBlock(this.board[newBoxY][newBoxX])) {
       return
-    }
-
-    // Count how many blocks are in a row
-    let blocksInARow = 0
-    if (isBlock(this.board[newBoxY][newBoxX])) {
-      blocksInARow = countBlocks(1, newBoxY, newBoxX, direction, this.board)
-      // See what the next block is
-      const nextBlock =
-        this.board[getY(newPlayerY, direction, blocksInARow)][
-          getX(newPlayerX, direction, blocksInARow)
-        ]
-      // Push all the blocks if you can
-      if (isTraversible(nextBlock)) {
-        for (let i = 0; i < blocksInARow; i++) {
-          // Add blocks
-          this.board[getY(newBoxY, direction, i)][getX(newBoxX, direction, i)] =
-            isVoid(levelOneMap[getY(newBoxY, direction, i)][getX(newBoxX, direction, i)])
-              ? SUCCESS_BLOCK
-              : BLOCK
-        }
-        this.movePlayer(playerCoords, direction)
-      }
     } else {
       // Move box
       // If on top of void, make into a success box
