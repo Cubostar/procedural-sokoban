@@ -3,8 +3,9 @@ export const EMPTY = 'empty'
 export const WALL = 'wall'
 export const BLOCK = 'block'
 export const SUCCESS_BLOCK = 'success_block'
-export const VOID = 'void'
+export const TARGET = 'void'
 export const PLAYER = 'player'
+export const NOTHING = 'nothing'
 
 export const directions = {
   up: 'up',
@@ -26,7 +27,7 @@ export const keys = {
 
 export const size = {
   height: 675,
-  width: 600,
+  width: 675,
 }
 
 export const multiplier = 75
@@ -43,11 +44,11 @@ export const colors = {
 export const levelOneMap = [
   [EMPTY, EMPTY, WALL, WALL, WALL, WALL, WALL, EMPTY],
   [WALL, WALL, WALL, EMPTY, EMPTY, EMPTY, WALL, EMPTY],
-  [WALL, VOID, PLAYER, BLOCK, EMPTY, EMPTY, WALL, EMPTY],
-  [WALL, WALL, WALL, EMPTY, BLOCK, VOID, WALL, EMPTY],
-  [WALL, VOID, WALL, WALL, BLOCK, EMPTY, WALL, EMPTY],
-  [WALL, EMPTY, WALL, EMPTY, VOID, EMPTY, WALL, WALL],
-  [WALL, BLOCK, EMPTY, SUCCESS_BLOCK, BLOCK, BLOCK, VOID, WALL],
-  [WALL, EMPTY, EMPTY, EMPTY, VOID, EMPTY, EMPTY, WALL],
+  [WALL, TARGET, PLAYER, BLOCK, EMPTY, EMPTY, WALL, EMPTY],
+  [WALL, WALL, WALL, EMPTY, BLOCK, TARGET, WALL, EMPTY],
+  [WALL, TARGET, WALL, WALL, BLOCK, EMPTY, WALL, EMPTY],
+  [WALL, EMPTY, WALL, EMPTY, TARGET, EMPTY, WALL, WALL],
+  [WALL, BLOCK, EMPTY, SUCCESS_BLOCK, BLOCK, BLOCK, TARGET, WALL],
+  [WALL, EMPTY, EMPTY, EMPTY, TARGET, EMPTY, EMPTY, WALL],
   [WALL, WALL, WALL, WALL, WALL, WALL, WALL, WALL],
 ]

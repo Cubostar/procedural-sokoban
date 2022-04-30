@@ -1,11 +1,11 @@
-import { EMPTY, WALL, BLOCK, SUCCESS_BLOCK, VOID, PLAYER, levelOneMap } from './constants.js'
+import { EMPTY, WALL, BLOCK, SUCCESS_BLOCK, TARGET, PLAYER, levelOneMap } from './constants.js'
 
 // Helpers
 export const isBlock = (cell) => [BLOCK, SUCCESS_BLOCK].includes(cell)
 export const isPlayer = (cell) => [PLAYER].includes(cell)
-export const isTraversible = (cell) => [EMPTY, VOID].includes(cell)
+export const isTraversible = (cell) => [EMPTY, TARGET].includes(cell)
 export const isWall = (cell) => [WALL].includes(cell)
-export const isVoid = (cell) => [VOID, SUCCESS_BLOCK].includes(cell)
+export const isVoid = (cell) => [TARGET, SUCCESS_BLOCK].includes(cell)
 
 export const getX = (x, direction, spaces = 1) => {
   if (direction === 'up' || direction === 'down') {
